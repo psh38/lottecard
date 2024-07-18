@@ -435,6 +435,10 @@ mainPrevBtn.addEventListener('click',()=>{
   mainMoveSlide(mainCurrentIdx-1);
 });
 
+// 재생/정지
+const playBtn = document.querySelector('.control-area .play');
+const stopBtn = document.querySelector('.control-area .stop');
+
 // 인디케이터
 document.querySelectorAll('.slide-wrapper.main-bnr .indicator .bullet').forEach((el, idx) => {
   el.addEventListener('click',()=>{

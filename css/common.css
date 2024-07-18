@@ -1,4 +1,7 @@
 @charset "utf-8";
+@import url(reset.css);
+@import url(layout.css);
+@import url(content.css);
 
 /* typography */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
@@ -68,6 +71,7 @@ textarea
 .slide-wrapper .btn-area > button {width:26px; height:26px; margin-left:16px;}
 .slide-wrapper .btn-area.white >button {color:#fff;}
 .slide-wrapper .btn-area .material-symbols-outlined {font-size:26px;}
+.slide-wrapper .control-area {position:absolute; top:0; right:0;}
 .slide-wrapper .indicator {position:absolute; top:8px; right:252px; display:flex; gap:16px;}
 .slide-wrapper .indicator .bullet {width:10px; height:10px; border-radius:50%; background-color:rgba(51,51,51,.3);}
 .slide-wrapper .control-area.white .indicator .bullet {background-color:rgba(255,255,255,.3);}
@@ -79,9 +83,15 @@ textarea
 .slide-wrapper .control-area.white .indicator .bullet.active:after {background-color:#fff;}
 .slide-wrapper .indicator .bullet.active:before {left:-5px;}
 .slide-wrapper .indicator .bullet.active:after {right:-5px;}
-.slide-wrapper .indicator .stop {position:relative;}
-.slide-wrapper .indicator .stop:before,
-.slide-wrapper .indicator .stop:after {content:''; position:absolute;}
+.slide-wrapper .control-area .btn-cont {display:none; position:absolute; top:4px; right:214px; width:16px; height:16px;}
+.slide-wrapper .control-area .btn-cont.on {display:block;}
+.slide-wrapper .control-area .btn-cont:before,
+.slide-wrapper .control-area .btn-cont:after {content:''; display:inline-block; vertical-align:top;}
+.slide-wrapper .control-area .stop:before,
+.slide-wrapper .control-area .stop:after {width:4px; height:16px; background-color:#333;}
+.slide-wrapper .control-area .play:after {width:0; height:0; border-style:solid; border-width:8px 0 8px 12px; border-color:transparent transparent transparent #333;}
+.slide-wrapper .control-area.white .stop:before,
+.slide-wrapper .control-area.white .stop:after {background-color:#fff;}
 
 /* 아이템 리스트(공통) */
 .item-list {display:flex; gap:24px; flex-wrap:wrap; position:relative; left:0;}
@@ -113,7 +123,7 @@ textarea
 .main-bnr.slide-wrapper  .main-con .img-wrap {width: 100%;}
 
 .main-bnr.slide-wrapper .btn-area {top:auto; bottom:402px; right:0;}
-.main-bnr.slide-wrapper .control-area {position:absolute; bottom:402px; right:0;}
+.main-bnr.slide-wrapper .control-area {position:absolute; width:100%; top:auto; bottom:428px; right:0;}
 
 /* 아이템 리스트 -카드 */
 .item-list.card .info-box {position:relative;}
