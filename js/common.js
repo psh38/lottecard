@@ -527,64 +527,64 @@ function popupClose(el){ // 팝업 닫기
   btnFocus.focus()
 }
 
-// 쿠키팝업
-const cookiePopup = document.querySelector('.pop-wrap.cookie');
-const cookieInput = cookiePopup.querySelector('#check');
-const tdColseBtn = cookiePopup.querySelector('.btn-close');
+// // 쿠키팝업
+// const cookiePopup = document.querySelector('.pop-wrap.cookie');
+// const cookieInput = cookiePopup.querySelector('#check');
+// const tdColseBtn = cookiePopup.querySelector('.btn-close');
 
-// 쿠키셋팅
-function setCookie(cName, cValue, cDay){
-  const expireVal = new Date();
-  expireVal.setDate(expireVal.getDate() + cDay); // setDate: 해당날짜설정, getDate: 일자 설정 -> 만료기간 설정
+// // 쿠키셋팅
+// function setCookie(cName, cValue, cDay){
+//   const expireVal = new Date();
+//   expireVal.setDate(expireVal.getDate() + cDay); // setDate: 해당날짜설정, getDate: 일자 설정 -> 만료기간 설정
   
-  cookies = cName + '=' + encodeURIComponent(cValue) + '; path=/ '; // encodeURIComponent(cValue) & escape(cValue): 한글 깨짐 현상 막기(예외처리)
-  if(typeof cDay != 'undefined'){
-    // cookies += ';expires=' + expireVal.toGMTString() + ';';
-    cookies += ';expires=' + expireVal.toUTCString() + ';'; // 브라우저에서 쿠키 만료일자를 지정할 때는 UTC/GMT 포맷을 사용
-  };
-  console.log("쿠키:", cookies );
-  document.cookie = cookies;
-}
-// 쿠키가져오기
-function getCookie(cName){ // Cookie값 가져오기
-  const cookies = document.cookie.split(";");
+//   cookies = cName + '=' + encodeURIComponent(cValue) + '; path=/ '; // encodeURIComponent(cValue) & escape(cValue): 한글 깨짐 현상 막기(예외처리)
+//   if(typeof cDay != 'undefined'){
+//     // cookies += ';expires=' + expireVal.toGMTString() + ';';
+//     cookies += ';expires=' + expireVal.toUTCString() + ';'; // 브라우저에서 쿠키 만료일자를 지정할 때는 UTC/GMT 포맷을 사용
+//   };
+//   console.log("쿠키:", cookies );
+//   document.cookie = cookies;
+// }
+// // 쿠키가져오기
+// function getCookie(cName){ // Cookie값 가져오기
+//   const cookies = document.cookie.split(";");
   
-  // 쿠키값 가져오기(여러개의 경우)
-  for(let i in cookies) {
-    if(cookies[i].search(cName) != -1) {
-      // console.log( decodeURIComponent(cookies[i].replace(cName + "=", "")) );
-      return decodeURIComponent(cookies[i].replace(cName + "=", ""));
-      // cookies[i].replace(cName + "=", "").replace(/^\S\S*/, "").replace(/^\S\S*$/, "") // 특정 브라우저 양끝 공백 문제 발생시 사용
-    };
-  };
-}
-// 쿠키삭제
-function removeCookie(cName){
-  const expireVal = new Date();
-  expireVal.setDate(expireVal.getDate() - 1);
+//   // 쿠키값 가져오기(여러개의 경우)
+//   for(let i in cookies) {
+//     if(cookies[i].search(cName) != -1) {
+//       // console.log( decodeURIComponent(cookies[i].replace(cName + "=", "")) );
+//       return decodeURIComponent(cookies[i].replace(cName + "=", ""));
+//       // cookies[i].replace(cName + "=", "").replace(/^\S\S*/, "").replace(/^\S\S*$/, "") // 특정 브라우저 양끝 공백 문제 발생시 사용
+//     };
+//   };
+// }
+// // 쿠키삭제
+// function removeCookie(cName){
+//   const expireVal = new Date();
+//   expireVal.setDate(expireVal.getDate() - 1);
   
-  // 삭제할 쿠키값 대입
-  document.cookie = cName + "= " + "; value=''; expires=" + expireVal.toGMTString()+"; path=/";
-  console.log("쿠키 삭제:" + cName);
-}
+//   // 삭제할 쿠키값 대입
+//   document.cookie = cName + "= " + "; value=''; expires=" + expireVal.toGMTString()+"; path=/";
+//   console.log("쿠키 삭제:" + cName);
+// }
 
-// 오늘 하루 안보기
-tdColseBtn.addEventListener('click',()=>{
-  console.log('체크', cookieInput.checked);
-  if(cookieInput.checked){ // 체크
-    //쿠키생성
-    setCookie('lotte','lottecard',1); // 1일
-  }
-  //쿠키삭제
-  // removeCookie('lotte');
-  // cookiePopup.classList.add('hide');
-});
+// // 오늘 하루 안보기
+// tdColseBtn.addEventListener('click',()=>{
+//   console.log('체크', cookieInput.checked);
+//   if(cookieInput.checked){ // 체크
+//     //쿠키생성
+//     setCookie('lotte','lottecard',1); // 1일
+//   }
+//   //쿠키삭제
+//   // removeCookie('lotte');
+//   // cookiePopup.classList.add('hide');
+// });
 
-if(typeof(getCookie('lotte')) !== "undefined") { //쿠키값이 저장되었을 경우
-  cookiePopup.remove();
-}else{ //쿠키값이 없을 경우(팝업노출)
-  popupOpen("#pop-wrap01");
-};
+// if(typeof(getCookie('lotte')) !== "undefined") { //쿠키값이 저장되었을 경우
+//   cookiePopup.remove();
+// }else{ //쿠키값이 없을 경우(팝업노출)
+//   popupOpen("#pop-wrap01");
+// };
 
 // 푸터 패밀리 사이트 (첫번째 이벤트 작동 x)
 const siteGroup = document.querySelector('.site-group');
