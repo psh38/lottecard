@@ -89,7 +89,8 @@ textarea
 .slide-wrapper .control-area .btn-cont:after {content:''; display:inline-block; vertical-align:top;}
 .slide-wrapper .control-area .stop:before,
 .slide-wrapper .control-area .stop:after {width:4px; height:16px; background-color:#333;}
-.slide-wrapper .control-area .play:after {width:0; height:0; border-style:solid; border-width:8px 0 8px 12px; border-color:transparent transparent transparent #333;}
+.slide-wrapper .control-area .play:before {display:block;}
+.slide-wrapper .control-area .play:after {width:0; height:0; border-style:solid; border-width:8px 0 8px 12px; border-color:transparent transparent transparent #fff;}
 .slide-wrapper .control-area.white .stop:before,
 .slide-wrapper .control-area.white .stop:after {background-color:#fff;}
 

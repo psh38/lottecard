@@ -441,7 +441,7 @@ document.querySelectorAll('.slide-wrapper.main-bnr .indicator .bullet').forEach(
   el.addEventListener('click',()=>{
     clearInterval(mainTimer); // 자동재생 정지
     mainMoveSlide(idx+2); // solid 이동
-    mainAutoSlide();  // 자동재생 시작
+    mianAutoSlide();  // 자동재생 시작
 
     // 인디케이터 활성화
     // for(let slide of document.querySelectorAll('.slide-wrapper.main-bnr .indicator .bullet')){
@@ -465,13 +465,13 @@ document.querySelectorAll('.control-area .btn-cont').forEach((el, idx) => {
     }else{ // 재생 시
       playBtn.classList.remove('on');
       stopBtn.classList.add('on');
-      mainAutoSlide();
+      mianAutoSlide();
     }
   })
 })
 
 // 자동재생
-function mainAutoSlide(){
+function mianAutoSlide(){
   mainTimer = setInterval(()=>{
     mainMoveSlide(mainCurrentIdx+1);
   }, 4000);
@@ -482,12 +482,12 @@ mainSlideContainer.addEventListener('mouseenter',()=>{
   clearInterval(mainTimer);
 });
 mainSlideContainer.addEventListener('mouseleave',()=>{
-  mainAutoSlide();
+  mianAutoSlide();
 });
 
 // 로드시 자동 스와이프 실행(메인 스와이프)
 setTimeout(() => {
-  mainAutoSlide();
+  mianAutoSlide();
 }, 900)
 
 // 팝업
